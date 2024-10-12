@@ -1,0 +1,117 @@
+<script lang="ts">
+  import { onMount } from "svelte";
+  import PopUp from "$lib/components/PopUp.svelte";
+
+  // [2024.10.13.02.39] employed people have javascript on so good chance this will flip when the flag gets triggered
+  let name: string = 'u16rogue';
+  const colors: Array<string> = [ '#7d5935', '#6c4476', '#2b7260', '#395d81', '#3f6a3c', '#3a7e81', '#7f7a38', '#7c363e', '#395d81', ];
+
+  onMount(async function () {
+    const popup = document.getElementById('popup-nojs');
+    if (popup) popup.style.visibility = 'visible';
+    name = /https{0,1}\:\/\/([\w]*)\./g.exec(window.location.href)?.[1] || name;
+  });
+</script>
+
+<svelte:head>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐀</text></svg>">
+  <title>🐀</title>
+</svelte:head>
+
+<PopUp
+  id="popup-nojs"
+
+  style="
+    position: fixed;
+    right: 5px;
+    top: 5px;
+    visibility: hidden;
+    border-style: solid;
+    border-width: 1px;
+    color: white;
+  "
+
+  styleoftitle="
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 8px;
+  "
+
+  styleofcontent="
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 4px;
+  "
+
+  title="JS Assert"
+>
+  If you're reading this<br>
+  that means you have<br>
+  JavaScript on :(
+</PopUp>
+
+<div class="main">
+  <div class="left-panel">
+    <div class="colorbox">{#each colors as color}<div class="box" style="background-color: {color};"></div>{/each}</div>
+    <div class="profile-image"></div>
+    <p style="text-align: center;">{name}'s page</p>
+    <hr class="profile-splitter">
+  </div>
+  <div class="content-panel"><slot/></div>
+</div>
+
+
+<style>
+  :root {
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+    font-family: "Comfortaa";
+    --theme-background-color: #1e1e28;
+    --theme-color: #c39fa1;
+  }
+
+  .profile-splitter {
+    color: var(--theme-color);
+  }
+
+  .profile-image {
+    background-image: url('https://avatars.githubusercontent.com/u/61908580?v=4');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    aspect-ratio: 1;
+  }
+
+  .left-panel {
+    background-color: #2d293b;
+    padding: 12px;
+    color: var(--theme-color);
+  }
+  
+  .content-panel {
+    background-color: #1e1e28;
+    flex-grow: 1;
+    min-height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .colorbox {
+    width: 200px;
+    height: 20px;
+
+    border-style: solid;
+    border-width: 1px;
+
+    display: flex;
+    flex-direction: row;
+  }
+
+  .colorbox .box {
+    flex-grow: 1;
+  }
+
+  .main {
+    width:  100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+  }
+</style>
