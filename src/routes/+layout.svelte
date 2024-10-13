@@ -52,7 +52,20 @@
   <div class="left-panel">
     <div class="colorbox">{#each colors as color}<div class="box" style="background-color: {color};"></div>{/each}</div>
     <div class="profile-image"></div>
-    <p style="text-align: center;">{name}'s page</p>
+    <div class="profile-drop-nav">
+      <p>{name}'s</p>
+      <div class="profile-hdivider"></div>
+      <div class="profile-drop-nav-selector-text">
+        page
+        <div class="profile-drop-down">
+          <a href="#">Page</a>
+          <a href="#">Portfolio</a>
+          <a href="#">Blog</a>
+          <a href="/links/github">GitHub</a>
+        </div>
+      </div>
+      
+    </div>
     <hr class="profile-splitter">
   </div>
   <div class="content-panel"><slot/></div>
@@ -65,6 +78,52 @@
     font-family: "Comfortaa";
     --theme-background-color: #1e1e28;
     --theme-color: #c39fa1;
+  }
+
+  .profile-drop-down > a:hover {
+    text-decoration: underline dotted;
+  }
+
+  .profile-drop-down > a {
+    text-decoration: none;
+    color: var(--theme-color);
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .profile-hdivider {
+    width: 4px;
+    height: 1px;
+    background-color: var(--theme-color);
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+
+  .profile-drop-nav-selector-text:hover > .profile-drop-down {
+    display: flex;
+  }
+
+  .profile-drop-down {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 8px;
+    transform: translateX(-25%);
+  }
+
+  .profile-drop-nav-selector-text {
+    text-decoration: underline dotted;
+    cursor: pointer;
+  }
+
+  .profile-drop-nav {
+    width: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
 
   .profile-splitter {
@@ -114,4 +173,6 @@
     display: flex;
     flex-direction: row;
   }
+
+  hr { padding: 0; margin: 0; }
 </style>
