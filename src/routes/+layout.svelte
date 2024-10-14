@@ -52,8 +52,10 @@
     <div class="colorbox">{#each data.colors as color}<div class="box" style="background-color: {color};"></div>{/each}</div>
     <div class="profile-image"></div>
     <div class="profile-drop-nav">
-      <p>{data.name}'s</p>
-      <div class="profile-hdivider"></div>
+      {#if data.name}<p style="margin: 0;">
+        {data.name}'s</p>
+        <div class="profile-hdivider"></div>
+      {/if}
       <div class="profile-drop-nav-selector-text">
         {data.current}
         <div class="profile-drop-down">
@@ -113,7 +115,6 @@
     position: absolute;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 8px;
-    transform: translateX(-25%);
   }
 
   .profile-drop-nav-selector-text {
@@ -128,6 +129,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 
   .profile-splitter {

@@ -1,4 +1,5 @@
 export type LinkEntryRoute = {
+  meta?: string[],
   type: 'route',
   id: string,
   name?: string,
@@ -6,6 +7,7 @@ export type LinkEntryRoute = {
 };
 
 export type LinkEntrySeparator = {
+  meta?: string[],
   type: 'separator',
 };
 
@@ -14,10 +16,12 @@ export type LinkEntries = Array<LinkEntry>;
 
 const SEPARATOR: LinkEntry = { type: 'separator' };
 
+//------------------------------------------------------------------------------
+
 const internal: LinkEntries = [
-  { type: 'route', id: 'page',      name: 'Page', route: '/' },
+  { type: 'route', id: 'page',      name: 'Home',      route: '/' },
   { type: 'route', id: 'portfolio', name: 'Portfolio', route: '/portfolio'},
-  { type: 'route', id: 'articles',  name: 'Articles', route: '/articles'},
+  { type: 'route', id: 'articles',  name: 'Articles',  route: '/articles'},
 ];
 
 const external: LinkEntries = [
