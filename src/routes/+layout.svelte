@@ -1,15 +1,14 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import PopUp from "$lib/components/PopUp.svelte";
+  import type { PageData } from "./$types";
 
-  // [2024.10.13.02.39] employed people have javascript on so good chance this will flip when the flag gets triggered
-  let name: string = 'u16rogue';
-  const colors: Array<string> = [ '#7d5935', '#6c4476', '#2b7260', '#395d81', '#3f6a3c', '#3a7e81', '#7f7a38', '#7c363e', '#395d81', ];
+  export let data: PageData;
 
   onMount(async function () {
     const popup = document.getElementById('popup-nojs');
     if (popup) popup.style.visibility = 'visible';
-    name = /https{0,1}\:\/\/([\w]*)\./g.exec(window.location.href)?.[1] || name;
+    data.name = /https{0,1}\:\/\/([\w]*)\./g.exec(window.location.href)?.[1] || data.name;
   });
 </script>
 
@@ -50,18 +49,23 @@
 
 <div class="main">
   <div class="left-panel">
-    <div class="colorbox">{#each colors as color}<div class="box" style="background-color: {color};"></div>{/each}</div>
+    <div class="colorbox">{#each data.colors as color}<div class="box" style="background-color: {color};"></div>{/each}</div>
     <div class="profile-image"></div>
     <div class="profile-drop-nav">
-      <p>{name}'s</p>
+      <p>{data.name}'s</p>
       <div class="profile-hdivider"></div>
       <div class="profile-drop-nav-selector-text">
-        page
+        {data.current}
         <div class="profile-drop-down">
-          <a href="#">Page</a>
-          <a href="#">Portfolio</a>
-          <a href="#">Blog</a>
-          <a href="/links/github">GitHub</a>
+          {#each data.nav as entry}
+            {#if entry.type === 'route'}
+              <a href="links/{entry.id}">{entry.name || entry.id}</a>
+            {:else if entry.type === 'separator'}
+              <hr>
+            {:else}
+              <a href="/">[err]</a>
+            {/if}
+          {/each}
         </div>
       </div>
       
@@ -174,5 +178,5 @@
     flex-direction: row;
   }
 
-  hr { padding: 0; margin: 0; }
+  hr { padding: 0; margin: 0; color: var(--theme-color); }
 </style>
