@@ -1,36 +1,40 @@
 <!--
 {
-  "id": "dummy-entry",
-  "title": "A Dummy Entry",
-  "description": "This is a dummy entry",
+  "id": "dummy-entry-from-md",
+  "title": "A Dummy Entry from Markdown",
+  "description": "Generating articles from markdown files statically",
   "thumbnail": "https://avatars.githubusercontent.com/u/61908580?v=4",
-  "tags": [],
+  "tags": [ "programming", "svelte", "markdown" ],
   "stamps": {
-    "created": "Mon Oct 14 2024 13:21:33 GMT+0600 (Taipei Standard Time)",
-    "added":   "Mon Oct 14 2024 13:21:33 GMT+0600 (Taipei Standard Time)",
-    "edited":  "Mon Oct 14 2024 14:11:00 GMT+0600 (Taipei Standard Time)"
+    "created": "Tue Oct 15 2024 01:14:08 GMT+0800 (Taipei Standard Time)",
+    "added":   "Tue Oct 15 2024 01:14:08 GMT+0800 (Taipei Standard Time)"
   }
 }
 -->
-# Dummy Entry
-This is a dummy entry that should show up as an article!
-If it does show up then the build time markdown to html works properly with metadata included!
+# A dummy entry!
+This is a dummy entry that should show up as an article! Automatically generated from a markdown file.
 
+There's also some embedded json data into the markdown itself wrapped in a comment that is used on the markdown compilation. You can find the original markdown file [here](https://github.com/u16rogue/u16rogue.github.io/blob/master/articles/local-markdown/dummy-entry.md). The metadata of this entry looks like this:
 ```
 {
-  "id": "dummy-entry",
-  "title": "A Dummy Entry",
-  "description": "This is a dummy entry",
+  "id": "dummy-entry-from-md",
+  "title": "A Dummy Entry from Markdown",
+  "description": "Generating articles from markdown files statically",
   "thumbnail": "https://avatars.githubusercontent.com/u/61908580?v=4",
-  "tags": [],
+  "tags": [ "programming", "svelte", "markdown" ],
   "stamps": {
-    "created": "Mon Oct 14 2024 13:21:33 GMT+0600 (Taipei Standard Time)",
-    "added":   "Mon Oct 14 2024 13:21:33 GMT+0600 (Taipei Standard Time)",
-    "edited":  "Mon Oct 14 2024 14:11:00 GMT+0600 (Taipei Standard Time)"
+    "created": "Tue Oct 15 2024 01:14:08 GMT+0800 (Taipei Standard Time)",
+    "added":   "Tue Oct 15 2024 01:14:08 GMT+0800 (Taipei Standard Time)"
   }
 }
 ```
 
-* image loading
+## Things
 
-![profileimage](https://avatars.githubusercontent.com/u/61908580?v=4)
+* It seems like Github Actions minutes aren't consumed for page actions.
+* With GitHub actions you can directly create and edit markdown into the repo and the action workflow takes care of everything.
+* Svelte's static adapter is quite impressive.
+
+This serves more of a functionality and feature test. Here are some:
+* image loading
+  * ![profileimage](https://avatars.githubusercontent.com/u/61908580?v=4)
