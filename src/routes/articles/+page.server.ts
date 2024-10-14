@@ -16,8 +16,6 @@ export async function load({ url }: any) {
     return entries.sort((a, b) => {
       const a_date = new Date(a.stamps?.edited || a.stamps?.added || a.stamps?.created || '');
       const b_date = new Date(b.stamps?.edited || b.stamps?.added || b.stamps?.created || '');
-      console.debug(a.stamps?.edited || a.stamps?.added || a.stamps?.created || '', b.stamps?.edited || b.stamps?.added || b.stamps?.created || '');
-      console.debug(a_date, b_date);
       if (a_date === b_date) {
         return 0;
       } else if (a_date > b_date) {

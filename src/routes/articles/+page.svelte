@@ -59,7 +59,6 @@
     margin: 8px 0 8px 0;
     background-color: #2d293b;
     align-items: center;
-    min-width: 550px;
     border-left-style: solid;
     border-left-color: #826a6b;
     border-left-width: 4px;
