@@ -23,7 +23,7 @@
   style="
     position: fixed;
     right: 5px;
-    top: 5px;
+    bottom: 5px;
     visibility: hidden;
     border-style: solid;
     border-width: 1px;
@@ -31,8 +31,8 @@
   "
 
   styleoftitle="
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 8px;
+    background-color: #7c363eaa;
+    padding: 6px;
   "
 
   styleofcontent="
