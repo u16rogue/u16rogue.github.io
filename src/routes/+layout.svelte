@@ -50,7 +50,8 @@
 <div class="main">
   <div class="left-panel">
     <div class="colorbox">{#each data.colors as color}<div class="box" style="background-color: {color};"></div>{/each}</div>
-    <div class="profile-image"></div>
+    <div class="profile-image" style="background-image: url({data.pfp});"></div>
+    
     <div class="profile-drop-nav">
       {#if data.name}<p style="margin: 0;">
         {data.name}'s</p>
@@ -115,6 +116,10 @@
     position: absolute;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 8px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: fit-content;
   }
 
   .profile-drop-nav-selector-text {
@@ -138,7 +143,6 @@
   }
 
   .profile-image {
-    background-image: url('https://avatars.githubusercontent.com/u/61908580?v=4');
     background-position: center;
     background-size: cover;
     width: 100%;
