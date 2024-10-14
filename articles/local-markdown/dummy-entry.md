@@ -14,7 +14,7 @@
 # A dummy entry!
 This is a dummy entry that should show up as an article! Automatically generated from a markdown file.
 
-There's also some embedded json data into the markdown itself wrapped in a comment that is used on the markdown compilation. You can find the original markdown file [here](https://github.com/u16rogue/u16rogue.github.io/blob/master/articles/local-markdown/dummy-entry.md). The metadata of this entry looks like this:
+There's also some embedded json data inside the markdown itself wrapped in a comment that is used on the markdown compilation. You can find the original markdown file [here](https://github.com/u16rogue/u16rogue.github.io/blob/master/articles/local-markdown/dummy-entry.md). The metadata of this entry looks like this:
 ```
 {
   "id": "dummy-entry-from-md",
