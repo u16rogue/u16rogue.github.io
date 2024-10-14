@@ -8,7 +8,7 @@
   onMount(async function () {
     const popup = document.getElementById('popup-nojs');
     if (popup) popup.style.visibility = 'visible';
-    data.name = /https{0,1}\:\/\/([\w]*)\./g.exec(window.location.href)?.[1] || data.name;
+    if (data.name) data.name = /https{0,1}\:\/\/([\w]*)\./g.exec(window.location.href)?.[1] || data.name;
   });
 </script>
 
