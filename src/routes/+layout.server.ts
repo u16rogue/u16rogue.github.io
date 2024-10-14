@@ -6,8 +6,8 @@ export const prerender = true;
 export async function load({ url }: any) {
 
   const get_current = function () {
-    return (config_links.links.find(x => x.type === 'route' && x.route.startsWith(url.pathname)) as LinkEntryRoute | undefined)?.name
-      || /(\/([\w]*)\/?)/.exec(url.pathname)?.[0]?.substring(0, 8)
+    return (config_links.links.toReversed().find(x => x.type === 'route' && url.pathname.startsWith(x.route)) as LinkEntryRoute | undefined)?.name
+      || /(\/([\w]*)\/?)/.exec(url.pathname)?.[1]?.substring(0, 12)
       || '[404]'
     ;
   };

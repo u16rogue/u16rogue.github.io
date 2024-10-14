@@ -8,7 +8,8 @@ const config = {
   kit: {
     adapter: adapter(),
     alias: {
-      'config': 'src/config'
+      'config': 'src/config',
+      'core': 'src/core',
     }
   }
 };
