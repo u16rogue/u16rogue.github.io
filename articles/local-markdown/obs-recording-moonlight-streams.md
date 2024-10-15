@@ -24,7 +24,7 @@ Record (only) my gameplay (directly) from Moonlight
 * pipewire can only capture **a** display
 * Capturing through pipewire is a bit odd from time to time
 
-Tried a bunch of solution to my problem but most of them dont work outside of flatpak, switching / forcing x11, or completely changing to a different DE.
+Tried a bunch of solution to my problem but most of them dont work outside of flatpak, requires switching / forcing x11, or completely changing to a different DE.
 
 ## Solution
 To directly capture Moonlight's rendering to OBS with obs-vkcapture.
@@ -39,6 +39,13 @@ Steps:
 3. Add `Game Capture` to your scene.
 
 ## Fixes
-|Issue|Fix|
-|:-:|:-:|
-|Moonlight is flickering black|Set Moonlight's `Settings > Advanced Settings > Video Decoder` to `Force Software Decoding`|
+<table border="1" align="center">
+  <tr>
+    <th>Issue</th>
+    <th>Fix</th>
+  </tr>
+  <tr>
+    <td>Moonlight is flickering black</td>
+    <td>Set Moonlight's `Settings > Advanced Settings > Video Decoder` to `Force Software Decoding`</td>
+  </tr>
+</table>
