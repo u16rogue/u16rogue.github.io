@@ -37,6 +37,14 @@
     text-decoration: underline dotted;
   }
 
+  .content :global(code) {
+    background-color: #2d293b;
+    width: fit-content;
+    padding: 1px;
+    margin: 1px;
+    border-color: #826a6b;
+  }
+
   .content :global(pre:has(code)) {
     background-color: #2d293b;
     padding: 8px;
