@@ -39,6 +39,7 @@ export async function parse_md_metadata(data: string): Promise<MarkdownMetadata>
     title: metadata?.title,
     description: metadata?.description,
     thumbnail: metadata?.thumbnail,
+    tags: metadata?.tags,
     stamps: {
       created: metadata?.stamps?.created,
       added:   metadata?.stamps?.added,
