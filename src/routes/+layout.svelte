@@ -62,7 +62,7 @@
         <div class="profile-drop-down">
           {#each data.nav as entry}
             {#if entry.type === 'route'}
-              <a href="/links/{entry.id}">{entry.name || entry.id}</a>
+              <a href="{entry.route}">{entry.name || entry.id}</a>
             {:else if entry.type === 'separator'}
               <hr>
             {:else}
