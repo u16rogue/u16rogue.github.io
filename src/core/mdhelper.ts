@@ -47,7 +47,7 @@ export async function parse_md_metadata(data: string): Promise<MarkdownMetadata>
 }
 
 export async function parse_md_content(data: string): Promise<MarkdownContent> {
-  return mdsvex_compile(data);
+  return mdsvex_compile(data, { highlight: { highlighter: (code: string, lang: string) => { return `<pre><code>${code}</code></pre>`; } } });
 }
 
 export async function parse_md(data: string): Promise<{ metadata: MarkdownMetadata, content: MarkdownContent }> {
