@@ -9,7 +9,7 @@ export async function load({ url }: any) {
         continue;
       }
       entries.push({
-        url: `${(url as URL).pathname}/${metadata.id}`,
+        url: `${(url as URL).pathname}/read/${metadata.id}`,
         ...metadata,
       });
     }
