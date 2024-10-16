@@ -20,7 +20,7 @@
 
   /*------------------------------------------------------------*/
 
-  .content { padding: 0 12px; }
+  .content { padding: 0 24px; }
 
   .content :global(img) {
     border-style: dashed;
