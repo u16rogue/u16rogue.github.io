@@ -47,7 +47,6 @@ export async function parse_md_metadata(data: string): Promise<MarkdownMetadata>
   };
 }
 
-const _theme = 'catppuccin-mocha';
 const _highlighter = await createHighlighter({
   themes: [config.highlighter.theme],
   langs: config.highlighter.languages,
@@ -57,7 +56,7 @@ export async function parse_md_content(data: string): Promise<MarkdownContent> {
   return mdsvex_compile(data, {
     highlight: {
       highlighter: async (code: string, lang: string) => {
-        return `{@html \`${mdsvex_escapesvelte(_highlighter.codeToHtml(code, { lang, theme: _theme }))}\`}`;
+        return mdsvex_escapesvelte(_highlighter.codeToHtml(code, { lang, theme: config.highlighter.theme }));
       },
     }
   });
