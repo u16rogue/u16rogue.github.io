@@ -2,11 +2,11 @@ export async function load() {
   return {
     meta: {
       page: {
-        title: 'Portfolio',
+        title: 'Home',
       },
       nav: {
-        title: 'Portfolio',
-        route: '/portfolio',
+        title: 'Home',
+        route: '/page',
       },
     },
   };

@@ -16,7 +16,7 @@ export async function load({ params }: any) {
         },
         nav: {
           title: 'Article',
-          route: '/articles',
+          route: '/page/articles',
         },
       },
     };

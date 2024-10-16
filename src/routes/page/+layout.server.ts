@@ -1,6 +1,5 @@
-import { config as config_links, type LinkEntryRoute } from "config/links";
+import { config as config_links } from "config/links";
 import { config as config_meta } from "config/meta";
-import { page } from "$app/stores";
 
 export const prerender = true;
 

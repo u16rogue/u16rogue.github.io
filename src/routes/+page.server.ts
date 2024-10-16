@@ -1,13 +1,3 @@
-export async function load() {
-  return {
-    meta: {
-      page: {
-        title: 'Home',
-      },
-      nav: {
-        title: 'Home',
-        route: '/',
-      },
-    },
-  };
-}
+import { redirect } from "@sveltejs/kit";
+
+export async function load() { throw redirect(303, '/page'); }

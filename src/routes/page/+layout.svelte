@@ -9,7 +9,7 @@
   onMount(async function () {
     const popup = document.getElementById('popup-nojs');
     if (popup) popup.style.visibility = 'visible';
-    if (data.name) data.name = /https{0,1}\:\/\/([\w]*)\./g.exec(window.location.href)?.[1] || data.name;
+    if (data.name) data.name = /https?\:\/\/([\w]*)\./g.exec(window.location.href)?.[1] || data.name;
   });
 </script>
 
@@ -59,7 +59,7 @@
         <div class="profile-hdivider"></div>
       {/if}
       <div class="profile-drop-nav-selector-text">
-        <a class="current-nav" href="{$page.data?.meta?.nav?.route || '/'}">{$page.data?.meta?.nav?.title || '[no title]'}</a>
+        <a class="current-nav" href="{$page.data?.meta?.nav?.route || '/page'}">{$page.data?.meta?.nav?.title || '[no title]'}</a>
         <div class="profile-drop-down">
           {#each data.nav as entry}
             {#if entry.type === 'route'}
@@ -67,7 +67,7 @@
             {:else if entry.type === 'separator'}
               <hr>
             {:else}
-              <a href="/">[err]</a>
+              <a href="/page">[err]</a>
             {/if}
           {/each}
         </div>

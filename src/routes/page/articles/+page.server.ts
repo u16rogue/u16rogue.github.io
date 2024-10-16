@@ -35,7 +35,7 @@ export async function load({ url }: any) {
       },
       nav: {
         title: 'Articles',
-        route: '/articles',
+        route: '/page/articles',
       },
     },
   };

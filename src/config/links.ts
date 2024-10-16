@@ -19,9 +19,9 @@ const SEPARATOR: LinkEntry = { type: 'separator' };
 //------------------------------------------------------------------------------
 
 const internal: LinkEntries = [
-  { type: 'route', id: 'page',      name: 'Home',      route: '/' },
-  { type: 'route', id: 'portfolio', name: 'Portfolio', route: '/portfolio'},
-  { type: 'route', id: 'articles',  name: 'Articles',  route: '/articles'},
+  { type: 'route', id: 'page',      name: 'Home',      route: '/page' },
+  { type: 'route', id: 'portfolio', name: 'Portfolio', route: '/page/portfolio'},
+  { type: 'route', id: 'articles',  name: 'Articles',  route: '/page/articles'},
 ];
 
 const external: LinkEntries = [
