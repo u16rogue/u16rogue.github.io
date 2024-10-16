@@ -1,7 +1,8 @@
-import { compile as mdsvex_compile } from "mdsvex";
+import { compile as mdsvex_compile, escapeSvelte as mdsvex_escapesvelte } from "mdsvex";
 import { config } from "config/articles";
 import * as fs from "fs";
 import * as path from "path";
+import { createHighlighter } from "shiki";
 
 export type MarkdownMetadata = {
   id?: string,
@@ -46,8 +47,20 @@ export async function parse_md_metadata(data: string): Promise<MarkdownMetadata>
   };
 }
 
+const _theme = 'catppuccin-mocha';
+const _highlighter = await createHighlighter({
+  themes: [config.highlighter.theme],
+  langs: config.highlighter.languages,
+});
+
 export async function parse_md_content(data: string): Promise<MarkdownContent> {
-  return mdsvex_compile(data, { highlight: { highlighter: (code: string, lang: string) => { return `<pre><code>${code}</code></pre>`; } } });
+  return mdsvex_compile(data, {
+    highlight: {
+      highlighter: async (code: string, lang: string) => {
+        return `{@html \`${mdsvex_escapesvelte(_highlighter.codeToHtml(code, { lang, theme: _theme }))}\`}`;
+      },
+    }
+  });
 }
 
 export async function parse_md(data: string): Promise<{ metadata: MarkdownMetadata, content: MarkdownContent }> {

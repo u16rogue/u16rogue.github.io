@@ -45,6 +45,10 @@
     border-color: #826a6b;
   }
 
+  .content :global(pre:has(code) > code) {
+    background-color: #00000000;
+  }
+
   .content :global(pre:has(code)) {
     background-color: #2d293b;
     padding: 8px;
