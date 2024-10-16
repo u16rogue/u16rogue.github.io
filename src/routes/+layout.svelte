@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import PopUp from "$lib/components/PopUp.svelte";
   import type { PageData } from "./$types";
+  import { page } from "$app/stores";
 
   export let data: PageData;
 
@@ -14,7 +15,7 @@
 
 <svelte:head>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐀</text></svg>">
-  <title>🐀</title>
+  <title>{$page.data?.meta?.page?.title || '...'} | 🐀</title>
 </svelte:head>
 
 <PopUp
@@ -58,7 +59,7 @@
         <div class="profile-hdivider"></div>
       {/if}
       <div class="profile-drop-nav-selector-text">
-        {data.current}
+        <a class="current-nav" href="{$page.data?.meta?.nav?.route || '/'}">{$page.data?.meta?.nav?.title || '[no title]'}</a>
         <div class="profile-drop-down">
           {#each data.nav as entry}
             {#if entry.type === 'route'}
@@ -85,6 +86,11 @@
     font-family: "Comfortaa";
     --theme-background-color: #1e1e28;
     --theme-color: #c39fa1;
+  }
+
+  .current-nav {
+    text-decoration: underline dotted;
+    color: var(--theme-color);
   }
 
   .profile-drop-down > a:hover {

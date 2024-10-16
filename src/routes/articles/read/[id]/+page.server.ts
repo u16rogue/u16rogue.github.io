@@ -7,7 +7,19 @@ export async function load({ params }: any) {
     if (metadata.id !== params?.id) {
       continue;
     }
-    return { metadata, content: await mdh.parse_md_content(entry), };
+    return {
+      metadata,
+      content: await mdh.parse_md_content(entry),
+      meta: {
+        page: {
+          title: metadata?.title || 'Article',
+        },
+        nav: {
+          title: 'Article',
+          route: '/articles',
+        },
+      },
+    };
   }
   throw error(404);
 }

@@ -29,5 +29,14 @@ export async function load({ url }: any) {
 
   return {
     articles: await load_articles(),
+    meta: {
+      page: {
+        title: 'Articles',
+      },
+      nav: {
+        title: 'Articles',
+        route: '/articles',
+      },
+    },
   };
 }
