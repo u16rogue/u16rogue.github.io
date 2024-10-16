@@ -40,11 +40,11 @@
     padding: 4px;
     background-color: #7c363e;
     font-size: 0.8rem;
+    white-space: nowrap;
+    display: inline-block;
   }
 
   .article-tags {
-    display: flex;
-    flex-direction: row;
   }
 
   .article-description {
