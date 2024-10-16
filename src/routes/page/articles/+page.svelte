@@ -39,6 +39,7 @@
     margin: 2px;
     padding: 4px;
     background-color: #7c363e;
+    font-size: 0.8rem;
   }
 
   .article-tags {
